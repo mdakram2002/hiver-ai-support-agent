@@ -1,0 +1,11 @@
+{
+  "seed": 42,
+  "eval_ratio": 0.2,
+  "total_conversations": 67666,
+  "train_conversations": 54086,
+  "eval_conversations": 13580,
+  "total_messages": 100000,
+  "train_messages": 79910,
+  "eval_messages": 20090,
+  "leakage_check": "PASSED - no overlapping conversation IDs"
+}

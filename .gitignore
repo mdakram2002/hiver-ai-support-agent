@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+__pycache__/
+.pytest_cache/
+data/raw/*.csv
+data/raw/*.zip
+data/processed/*.sqlite
+data/processed/clean.csv
+data/processed/threads.csv
+data/processed/train_threads.csv
+data/processed/eval_threads.csv
+data/processed/resolution_pairs_embedded.csv
+reports/evaluation_results.json
+*.pyc

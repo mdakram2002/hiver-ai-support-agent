@@ -1,0 +1,172 @@
+{
+  "intents": [
+    {
+      "name": "order_status",
+      "description": "Customer asking about the status of their order or delivery",
+      "positive_examples": [
+        "Where is my order?",
+        "When will my package arrive?",
+        "Can you check my delivery status?",
+        "My order hasn't shipped yet"
+      ],
+      "negative_examples": [
+        "I want to return this item",
+        "My package was damaged",
+        "Cancel my order"
+      ]
+    },
+    {
+      "name": "refund_request",
+      "description": "Customer requesting a refund for a purchase",
+      "positive_examples": [
+        "I want a refund",
+        "Please refund my money",
+        "Can I get my money back?",
+        "Refund my order"
+      ],
+      "negative_examples": [
+        "Where is my refund?",
+        "I want to exchange this item",
+        "When will I get my refund?"
+      ]
+    },
+    {
+      "name": "return_exchange",
+      "description": "Customer wants to return or exchange an item",
+      "positive_examples": [
+        "I want to return this item",
+        "How do I return my order?",
+        "Can I exchange this for a different size?",
+        "Return this product"
+      ],
+      "negative_examples": [
+        "I want a refund",
+        "My item is damaged",
+        "Keep this item"
+      ]
+    },
+    {
+      "name": "payment_issue",
+      "description": "Customer having problems with payment or charges",
+      "positive_examples": [
+        "I was charged twice",
+        "Why was I charged this amount?",
+        "Payment failed",
+        "My card was charged incorrectly"
+      ],
+      "negative_examples": [
+        "I want to change my payment method",
+        "Where is my refund?",
+        "Billing question"
+      ]
+    },
+    {
+      "name": "account_access",
+      "description": "Customer having trouble accessing their account",
+      "positive_examples": [
+        "I can't log in",
+        "Forgot my password",
+        "Account locked",
+        "Can't access my account"
+      ],
+      "negative_examples": [
+        "I want to close my account",
+        "Change my email",
+        "Update my profile"
+      ]
+    },
+    {
+      "name": "product_issue",
+      "description": "Customer reporting a problem with a product they received",
+      "positive_examples": [
+        "My item is damaged",
+        "Product doesn't work",
+        "Defective item",
+        "Wrong item received"
+      ],
+      "negative_examples": [
+        "I want to return this",
+        "Product question",
+        "How does this work?"
+      ]
+    },
+    {
+      "name": "prime_video_issue",
+      "description": "Customer having issues with Prime Video streaming",
+      "positive_examples": [
+        "Prime Video not working",
+        "Can't stream video",
+        "Video playback error",
+        "Prime Video quality issues"
+      ],
+      "negative_examples": [
+        "Prime membership question",
+        "Video content question",
+        "Download video"
+      ]
+    },
+    {
+      "name": "delivery_problem",
+      "description": "Customer reporting issues with delivery process",
+      "positive_examples": [
+        "Package not delivered",
+        "Wrong address delivery",
+        "Delivery person didn't come",
+        "Package lost"
+      ],
+      "negative_examples": [
+        "Where is my order?",
+        "Delivery time question",
+        "Shipping cost"
+      ]
+    },
+    {
+      "name": "prime_membership",
+      "description": "Customer asking about Prime membership or benefits",
+      "positive_examples": [
+        "Prime membership question",
+        "Cancel Prime",
+        "Prime benefits",
+        "Prime renewal"
+      ],
+      "negative_examples": [
+        "Prime Video issue",
+        "Prime shipping question",
+        "Account issue"
+      ]
+    },
+    {
+      "name": "general_inquiry",
+      "description": "General customer service questions that don't fit other categories",
+      "positive_examples": [
+        "Customer service question",
+        "General help needed",
+        "How do I contact support?",
+        "I have a question"
+      ],
+      "negative_examples": [
+        "Order status",
+        "Payment issue",
+        "Product question"
+      ]
+    }
+  ],
+  "metadata": {
+    "brand": "AmazonHelp",
+    "created_date": "2026-09-11",
+    "total_intents": 10,
+    "notes": "Taxonomy based on analysis of AmazonHelp customer messages from the dataset. Intents are designed to be mutually exclusive and cover the majority of customer support scenarios."
+  },
+  "intent_names": [
+    "order_status",
+    "refund_request",
+    "return_exchange",
+    "payment_issue",
+    "account_access",
+    "product_issue",
+    "prime_video_issue",
+    "delivery_problem",
+    "prime_membership",
+    "general_inquiry"
+  ]
+}

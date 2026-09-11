@@ -1,0 +1,8 @@
+{
+  "brand": "AmazonHelp",
+  "sample_size": 150,
+  "seed": 42,
+  "total_available": 586,
+  "source_file": "../../data/processed/eval_threads.csv",
+  "instructions": "Fill in expected_intent, expected_escalation, expected_resolution, difficulty, and notes columns"
+}

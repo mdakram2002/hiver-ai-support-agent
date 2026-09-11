@@ -1,0 +1,22 @@
+{
+  "input": "..\\..\\data\\raw\\twcs.csv",
+  "rows": 2811774,
+  "inbound": 1537843,
+  "outbound": 1273931,
+  "response_links": 1771145,
+  "unique_tweet_ids": 2811774,
+  "unique_author_ids": 702777,
+  "null_counts": {
+    "tweet_id": 0,
+    "author_id": 0,
+    "inbound": 0,
+    "created_at": 0,
+    "text": 0,
+    "response_tweet_id": 1040629,
+    "in_response_to_tweet_id": 794335
+  },
+  "date_range": {
+    "start": "2008-05-08T20:13:59+00:00",
+    "end": "2017-12-03T23:14:01+00:00"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "total_pairs": 171,
+  "intents_used": [
+    "general_inquiry",
+    "delivery_problem",
+    "refund_request",
+    "return_exchange",
+    "prime_membership",
+    "payment_issue",
+    "account_access",
+    "order_status",
+    "product_issue"
+  ],
+  "intent_distribution": {
+    "general_inquiry": 99,
+    "delivery_problem": 26,
+    "refund_request": 13,
+    "return_exchange": 9,
+    "prime_membership": 8,
+    "payment_issue": 8,
+    "account_access": 4,
+    "order_status": 3,
+    "product_issue": 1
+  },
+  "labeling_method": "keyword-based for demonstration",
+  "taxonomy_source": "../../data/processed/intent_taxonomy.json"
+}

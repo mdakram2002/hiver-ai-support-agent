@@ -1,0 +1,19 @@
+{
+  "import_status": "MOCK_IMPORT_SUCCESS",
+  "brand": "AmazonHelp",
+  "total_pairs_imported": 171,
+  "intent_distribution": {
+    "general_inquiry": 99,
+    "delivery_problem": 26,
+    "refund_request": 13,
+    "return_exchange": 9,
+    "prime_membership": 8,
+    "payment_issue": 8,
+    "account_access": 4,
+    "order_status": 3,
+    "product_issue": 1
+  },
+  "note": "This is a mock import. PostgreSQL database not available.",
+  "embeddings_validated": true,
+  "timestamp": "2026-09-11"
+}

@@ -1,0 +1,109 @@
+{
+  "totals": {
+    "rows": 2811774,
+    "inbound": 1537843,
+    "outbound": 1273931
+  },
+  "top_support_candidates": [
+    {
+      "author_id": "AmazonHelp",
+      "outbound_messages": 169840,
+      "direct_replies": 169287
+    },
+    {
+      "author_id": "AppleSupport",
+      "outbound_messages": 106860,
+      "direct_replies": 106719
+    },
+    {
+      "author_id": "Uber_Support",
+      "outbound_messages": 56270,
+      "direct_replies": 56261
+    },
+    {
+      "author_id": "SpotifyCares",
+      "outbound_messages": 43265,
+      "direct_replies": 43243
+    },
+    {
+      "author_id": "Delta",
+      "outbound_messages": 42253,
+      "direct_replies": 42197
+    },
+    {
+      "author_id": "Tesco",
+      "outbound_messages": 38573,
+      "direct_replies": 38501
+    },
+    {
+      "author_id": "AmericanAir",
+      "outbound_messages": 36764,
+      "direct_replies": 36598
+    },
+    {
+      "author_id": "TMobileHelp",
+      "outbound_messages": 34317,
+      "direct_replies": 34287
+    },
+    {
+      "author_id": "comcastcares",
+      "outbound_messages": 33031,
+      "direct_replies": 33007
+    },
+    {
+      "author_id": "British_Airways",
+      "outbound_messages": 29361,
+      "direct_replies": 29315
+    },
+    {
+      "author_id": "SouthwestAir",
+      "outbound_messages": 28977,
+      "direct_replies": 28889
+    },
+    {
+      "author_id": "VirginTrains",
+      "outbound_messages": 27817,
+      "direct_replies": 27522
+    },
+    {
+      "author_id": "Ask_Spectrum",
+      "outbound_messages": 25860,
+      "direct_replies": 25807
+    },
+    {
+      "author_id": "XboxSupport",
+      "outbound_messages": 24557,
+      "direct_replies": 24341
+    },
+    {
+      "author_id": "sprintcare",
+      "outbound_messages": 22381,
+      "direct_replies": 22335
+    },
+    {
+      "author_id": "hulu_support",
+      "outbound_messages": 21872,
+      "direct_replies": 21783
+    },
+    {
+      "author_id": "sainsburys",
+      "outbound_messages": 19466,
+      "direct_replies": 19417
+    },
+    {
+      "author_id": "GWRHelp",
+      "outbound_messages": 19364,
+      "direct_replies": 19294
+    },
+    {
+      "author_id": "AskPlayStation",
+      "outbound_messages": 19098,
+      "direct_replies": 18694
+    },
+    {
+      "author_id": "ChipotleTweets",
+      "outbound_messages": 18749,
+      "direct_replies": 18612
+    }
+  ]
+}

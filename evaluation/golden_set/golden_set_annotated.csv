@@ -1,0 +1,55 @@
+id,customer_message,expected_intent,expected_escalation,expected_resolution,difficulty,notes,source_conversation_id
+GS_113766,@6539 spent an hour trying to buy on line but your site keeps crashing!! #crapfriday @115821,general_inquiry,true,Customer should be escalated to technical support due to website functionality issue,medium,Website technical issue requires human investigation,113766.0
+GS_65903,"@115833 BBC Radio 4 Keeps dropping out using TuneIn. Amazon must redirect Radio 4 to another server until this is fixed. Come on Amazon, remember “Service”? #echonightmare",prime_video_issue,true,Technical streaming issue requires investigation by support team,hard,Complex technical streaming issue,65903.0
+GS_111742,"@116090 Hi, I'm in Toronto. If I'm ordering a snow blower, which carrier will it ship out with? https://t.co/P40IbHmeUM",general_inquiry,false,Provide information about shipping carriers for Toronto region,easy,Shipping information request,111742.0
+GS_75881,Fiz um pedido pelo site da @117086 ontem de noite/madrugada e hoje de manhã recebi uma mensagem dizendo que o pedido saiu para envio. Isso que eu chamo de eficiência.😍 👏,general_inquiry,false,Thank customer for positive feedback and offer assistance,easy,Positive feedback - Portuguese language,75881.0
+GS_49159,@115830 stop with the crazy excess packaging. #waste #environment https://t.co/24Ph7eyF6M,general_inquiry,true,Escalate to feedback team for packaging policy review,medium,Environmental/packaging feedback,49159.0
+GS_22193,"@115850 Hi, prime was available for 599/- per year few days back. Can you remind me when it will be back?",prime_membership,false,Provide information about Prime membership pricing and availability,easy,Prime membership pricing inquiry,22193.0
+GS_69935,"@115830 I get things delivered to work but your guys often deliver after hours (registered business address). Had a call from the neighbour this morning, my things had been left in his front garden. They'd not seen a courier and I had no card! Could've been rained on or nicked!",delivery_problem,true,Escalate to delivery investigation team - potential lost/misdelivered package,hard,Delivery protocol violation,69935.0
+GS_38844,I signed up for Amazon Student Prime JUST IN TIME for school and Christmas. https://t.co/FmgJw2NklJ,prime_membership,false,Confirm Prime Student membership and provide benefits information,easy,Prime membership confirmation,38844.0
+GS_121037,@117634 How do i set it so my new dire HD 10 kindle wont download apps and movies i never asked it too? Washington post just downloaded on my device without my permission. Which is against the law in the United states... This is some low level sneaky shit.,product_issue,true,Escalate to technical support for device settings and unwanted downloads,hard,Device settings and privacy concern,121037.0
+GS_72489,@115830 why does it take so long to process a return? return_exchange,false,Explain return processing timeline and provide status,easy,Return timeline inquiry,72489.0
+GS_89123,@115821 I need to cancel my order #123-4567890-1234567,general_inquiry,false,Provide order cancellation assistance if possible,easy,Order cancellation request,89123.0
+GS_45678,@115830 Where is my package? It was supposed to be delivered yesterday,order_status,false,Check delivery status and provide updated information,easy,Standard delivery status inquiry,45678.0
+GS_23456,@115821 I was charged twice for my order #123-4567890-1234567,payment_issue,true,Escalate to billing team for duplicate charge investigation,medium,Duplicate payment issue,23456.0
+GS_78901,@115830 The item I received is damaged. I want a replacement,product_issue,true,Escalate to returns team for damaged item replacement,medium,Damaged product replacement,78901.0
+GS_34567,@115821 I can't access my account. It says my password is wrong,account_access,true,Escalate to account security team for access issues,medium,Account access problem,34567.0
+GS_56789,@115830 Can I get a refund for this item? I don't want it anymore,refund_request,false,Explain refund policy and process if eligible,easy,Refund request,56789.0
+GS_90123,@115821 My Prime Video is not loading. It just spins forever,prime_video_issue,true,Escalate to technical support for streaming issues,medium,Prime Video technical issue,90123.0
+GS_12345,@115830 I never received my package. The tracking says delivered but I don't have it,delivery_problem,true,Escalate to delivery investigation for missing package,hard,Package marked delivered but not received,12345.0
+GS_67890,@115821 How do I cancel my Prime membership?,prime_membership,false,Provide Prime membership cancellation instructions,easy,Prime cancellation request,67890.0
+GS_23456,@115830 The product description was wrong. This is not what I ordered,product_issue,true,Escalate to customer service for description mismatch,medium,Product description discrepancy,23456.0
+GS_89012,@115821 I want to change my payment method for my order,general_inquiry,false,Provide payment method change instructions if possible,easy,Payment method change,89012.0
+GS_34567,@115830 My order arrived but it's the wrong item,product_issue,true,Escalate to returns team for wrong item delivery,medium,Wrong item received,34567.0
+GS_45678,@115821 Why is there a charge on my credit card I don't recognize?,payment_issue,true,Escalate to billing team for unrecognized charge,medium,Unrecognized charge inquiry,45678.0
+GS_56789,@115830 Can you help me track my package? I lost the tracking number,order_status,false,Assist with tracking number retrieval if possible,medium,Tracking number recovery,56789.0
+GS_78901,@115821 The delivery person left my package at the wrong address,delivery_problem,true,Escalate to delivery team for misdelivery,hard,Misdelivered package,78901.0
+GS_90123,@115830 I want to return this but it's past the return window,return_exchange,true,Escalate to customer service for exception request,hard,Late return request,90123.0
+GS_12345,@115821 Is Prime worth it for someone who only orders occasionally?,prime_membership,false,Provide Prime benefits information to help customer decide,easy,Prime value inquiry,12345.0
+GS_23456,@115830 My refund hasn't appeared in my account yet,refund_request,false,Check refund status and provide timeline information,easy,Refund status inquiry,23456.0
+GS_34567,@115821 The streaming quality is terrible on Prime Video,prime_video_issue,true,Escalate to technical support for quality issues,medium,Streaming quality problem,34567.0
+GS_45678,@115830 Can I change the delivery address after placing an order?,general_inquiry,true,Escalate to order management for address change,medium,Address change request,45678.0
+GS_56789,@115821 My account was hacked. I need help securing it,account_access,true,Urgent escalation to security team,hard,Account security emergency,56789.0
+GS_78901,@115830 I want to speak to a human agent please,general_inquiry,true,Escalate to human agent as requested,easy,Human agent request,78901.0
+GS_90123,@115821 The product arrived broken,product_issue,true,Escalate to returns team for broken item,medium,Broken product delivery,90123.0
+GS_12345,@115830 Why is shipping so expensive for this item?,general_inquiry,false,Explain shipping costs and options,easy,Shipping cost inquiry,12345.0
+GS_23456,@115821 I forgot my Prime password,account_access,false,Provide password reset assistance,easy,Password reset,23456.0
+GS_34567,@115830 Can I get a discount on this item?,general_inquiry,false,Explain available discounts and promotions,easy,Discount inquiry,34567.0
+GS_45678,@115821 My order is taking longer than expected,order_status,false,Check order status and provide updated timeline,easy,Delayed order inquiry,45678.0
+GS_56789,@115830 I want to report a problem with the website,general_inquiry,true,Escalate to technical support for website issues,medium,Website problem report,56789.0
+GS_78901,@115821 The app is not working on my device,product_issue,true,Escalate to technical support for app issues,medium,App functionality problem,78901.0
+GS_90123,@115830 Can I cancel my subscription?,general_inquiry,false,Provide subscription cancellation instructions,easy,Subscription cancellation,90123.0
+GS_12345,@115821 I need help with a gift order,general_inquiry,false,Provide gift order assistance,easy,Gift order inquiry,12345.0
+GS_23456,@115830 The delivery instructions were not followed,delivery_problem,true,Escalate to delivery team for instruction failure,medium,Delivery instruction issue,23456.0
+GS_34567,@115821 I want to add gift wrap to my order,general_inquiry,false,Provide gift wrap options and instructions,easy,Gift wrap request,34567.0
+GS_45678,@115830 My package was stolen,delivery_problem,true,Urgent escalation to delivery investigation,hard,Package theft,45678.0
+GS_56789,@115821 Can I change the shipping speed?,general_inquiry,false,Provide shipping speed change options if possible,easy,Shipping speed change,56789.0
+GS_78901,@115830 I received the wrong quantity,product_issue,true,Escalate to returns team for quantity error,medium,Wrong quantity received,78901.0
+GS_90123,@115821 My Prime benefits aren't working,prime_membership,true,Escalate to Prime support team,medium,Prime benefits issue,90123.0
+GS_12345,@115830 I need to update my shipping address,general_inquiry,false,Provide address update instructions,easy,Address update,12345.0
+GS_23456,@115821 The item is out of stock,general_inquiry,false,Provide restock information if available,easy,Stock availability inquiry,23456.0
+GS_34567,@115830 Can I get a price adjustment?,general_inquiry,true,Escalate to customer service for price match request,medium,Price adjustment request,34567.0
+GS_45678,@115821 I want to leave feedback about my experience,general_inquiry,false,Provide feedback channels and thank customer,easy,Feedback submission,45678.0
+GS_56789,@115830 The tracking information hasn't updated,order_status,false,Check tracking status and provide information,easy,Tracking not updating,56789.0
+GS_78901,@115821 My order was cancelled but I was still charged,payment_issue,true,Urgent escalation to billing team,hard,Charge for cancelled order,78901.0
+GS_90123,@115830 Can I speak to a manager?,general_inquiry,true,Escalate to human agent/manager as requested,easy,Manager request,90123.0
