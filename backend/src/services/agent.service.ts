@@ -51,6 +51,7 @@ export class AgentService {
       unsupportedClaims: draft.unsupportedClaims,
       intent: intent.name,
       message,
+      evidenceIntents: evidence.map(e => e.intent).filter((intent): intent is string => Boolean(intent)),
     });
 
     return {

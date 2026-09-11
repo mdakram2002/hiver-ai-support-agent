@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
-import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
+import path from 'node:path';
 
-dotenv.config({ path: fileURLToPath(new URL('../../../.env', import.meta.url)) });
+dotenv.config({ path: path.resolve('C:\\Users\\hp\\GitHub\\hiver-ai-support-agent\\.env') });
 
 const schema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
