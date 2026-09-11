@@ -1,0 +1,10 @@
+[tool.black]
+line-length = 100
+target-version = ["py313"]
+extend-exclude = '''
+(
+  /data/
+  | /reports/
+  | /pytest-cache-files-xze30dkx/
+)
+'''

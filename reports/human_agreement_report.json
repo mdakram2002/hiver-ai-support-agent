@@ -1,0 +1,44 @@
+{
+  "analysis_type": "HUMAN_AGREEMENT_METHODOLOGY",
+  "status": "NOT_YET_IMPLEMENTED",
+  "note": "Actual human agreement analysis requires independent human annotations",
+  "methodology": {
+    "description": "To measure agreement between LLM judge and human evaluators:",
+    "steps": [
+      "1. Select a random subset of AI-generated responses (e.g., 50-100 examples)",
+      "2. Have independent human annotators evaluate the same responses using the same rubric",
+      "3. Compare human scores with LLM judge scores",
+      "4. Calculate agreement metrics (Cohen's Kappa, correlation coefficients)",
+      "5. Analyze disagreements to identify judge limitations"
+    ],
+    "metrics_to_calculate": [
+      "Cohen's Kappa for categorical agreement (unsupported claims)",
+      "Pearson/Spearman correlation for ordinal scores (1-5 scales)",
+      "Mean Absolute Error (MAE) for score differences",
+      "Agreement rate within \u00b11 score tolerance"
+    ]
+  },
+  "requirements": {
+    "sample_size": "Minimum 50 examples for meaningful agreement analysis",
+    "annotators": "At least 2 independent human annotators",
+    "annotation_guidelines": "Must use the same rubric as LLM judge",
+    "inter_annotator_agreement": "Should measure agreement between human annotators first"
+  },
+  "expected_challenges": [
+    "Subjectivity in scoring quality dimensions",
+    "Human evaluator fatigue and consistency",
+    "Cost and time of human annotation",
+    "Defining clear boundaries for score categories"
+  ],
+  "mock_demonstration": {
+    "note": "This is a demonstration of the report format",
+    "hypothetical_results": {
+      "sample_size": 50,
+      "annotator_count": 2,
+      "inter_annotator_kappa": 0.72,
+      "llm_human_kappa": 0.65,
+      "score_correlation": 0.78,
+      "interpretation": "Substantial agreement between LLM judge and humans"
+    }
+  }
+}

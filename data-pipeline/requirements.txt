@@ -1,0 +1,7 @@
+pandas>=2.2
+kagglehub>=0.3
+scikit-learn>=1.5
+openai>=1.54
+psycopg[binary]>=3.2
+python-dotenv>=1.0
+pytest>=8.3

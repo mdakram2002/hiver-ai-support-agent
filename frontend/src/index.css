@@ -1,0 +1,184 @@
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #18212f;
+  background: #f5f7fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  height: 64px;
+  background: #fff;
+  border-bottom: 1px solid #e3e8ef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  color: #526173;
+}
+
+header strong {
+  color: #176b5a;
+  font-size: 1.25rem;
+}
+
+header span {
+  font-weight: 600;
+  color: #18212f;
+}
+
+.grid {
+  max-width: 1180px;
+  margin: 40px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.grid > div,
+aside {
+  background: #fff;
+  border: 1px solid #e3e8ef;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 2px #18212f08;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+h3 {
+  font-size: 0.9rem;
+  color: #526173;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 128px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  margin: 8px 0 12px;
+  padding: 12px;
+  font: inherit;
+  resize: vertical;
+}
+
+button {
+  background: #176b5a;
+  color: #fff;
+  border: 0;
+  border-radius: 7px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.55;
+}
+
+.chat {
+  min-height: 150px;
+  border-bottom: 1px solid #e3e8ef;
+  margin-bottom: 24px;
+}
+
+.customer,
+.agent {
+  padding: 10px 12px;
+  border-radius: 8px;
+  max-width: 85%;
+}
+
+.customer {
+  background: #eef4ff;
+  margin-left: auto;
+}
+
+.agent {
+  background: #edf9f5;
+}
+
+.badge {
+  display: inline-block;
+  background: #e5f4ef;
+  color: #176b5a;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+
+.confidence {
+  margin: 20px 0;
+}
+
+.confidence strong {
+  float: right;
+}
+
+.confidence i {
+  display: block;
+  height: 6px;
+  border-radius: 8px;
+  background: #e3e8ef;
+  margin-top: 8px;
+}
+
+.confidence b {
+  display: block;
+  height: 100%;
+  background: #176b5a;
+  border-radius: 8px;
+}
+
+.decision {
+  padding: 14px;
+  border-left: 4px solid #176b5a;
+  background: #edf9f5;
+}
+
+.decision.escalate {
+  border-color: #c65a2e;
+  background: #fff3ed;
+}
+
+.decision p,
+.muted {
+  color: #66768a;
+}
+
+.evidence {
+  border-top: 1px solid #e3e8ef;
+  padding: 10px 0;
+  font-size: 0.9rem;
+}
+
+.evidence p {
+  margin: 6px 0;
+}
+
+.error {
+  color: #b42318;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+    margin: 20px auto;
+  }
+
+  header {
+    padding: 0 24px;
+  }
+}

@@ -1,0 +1,555 @@
+{
+  "evaluation_type": "MOCK_LLM_JUDGE",
+  "total_examples": 54,
+  "average_scores": {
+    "groundedness": 4.13,
+    "relevance": 4.09,
+    "helpfulness": 3.98,
+    "completeness": 3.94,
+    "tone": 4.54,
+    "unsupported_claims_rate": 0.5
+  },
+  "note": "This is a mock evaluation. In production, actual AI agent responses would be evaluated.",
+  "individual_results": [
+    {
+      "groundedness": 3,
+      "relevance": 5,
+      "helpfulness": 4,
+      "completeness": 3,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_113766"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 5,
+      "helpfulness": 3,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_65903"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 4,
+      "helpfulness": 3,
+      "completeness": 5,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_111742"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 4,
+      "helpfulness": 3,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_75881"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 5,
+      "helpfulness": 3,
+      "completeness": 4,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_49159"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 5,
+      "helpfulness": 3,
+      "completeness": 5,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_22193"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 3,
+      "helpfulness": 4,
+      "completeness": 4,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_69935"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 5,
+      "helpfulness": 4,
+      "completeness": 4,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_38844"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 4,
+      "helpfulness": 4,
+      "completeness": 3,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_121037"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 4,
+      "helpfulness": 3,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_72489"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 5,
+      "helpfulness": 5,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_89123"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 5,
+      "helpfulness": 5,
+      "completeness": 4,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_45678"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 3,
+      "helpfulness": 4,
+      "completeness": 4,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_23456"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 5,
+      "helpfulness": 5,
+      "completeness": 3,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_78901"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 3,
+      "helpfulness": 3,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_34567"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 4,
+      "helpfulness": 3,
+      "completeness": 4,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_56789"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 4,
+      "helpfulness": 4,
+      "completeness": 3,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_90123"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 4,
+      "helpfulness": 5,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_12345"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 4,
+      "helpfulness": 4,
+      "completeness": 4,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_67890"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 5,
+      "helpfulness": 3,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_23456"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 5,
+      "helpfulness": 3,
+      "completeness": 5,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_89012"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 5,
+      "helpfulness": 4,
+      "completeness": 4,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_34567"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 4,
+      "helpfulness": 5,
+      "completeness": 3,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_45678"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 5,
+      "helpfulness": 3,
+      "completeness": 3,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_56789"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 3,
+      "helpfulness": 3,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_78901"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 3,
+      "helpfulness": 5,
+      "completeness": 4,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_90123"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 3,
+      "helpfulness": 3,
+      "completeness": 5,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_12345"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 3,
+      "helpfulness": 5,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_23456"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 3,
+      "helpfulness": 4,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_34567"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 5,
+      "helpfulness": 4,
+      "completeness": 3,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_45678"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 3,
+      "helpfulness": 5,
+      "completeness": 4,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_56789"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 4,
+      "helpfulness": 4,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_78901"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 4,
+      "helpfulness": 3,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_90123"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 5,
+      "helpfulness": 5,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_12345"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 5,
+      "helpfulness": 4,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_23456"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 3,
+      "helpfulness": 5,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_34567"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 5,
+      "helpfulness": 3,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_45678"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 3,
+      "helpfulness": 5,
+      "completeness": 5,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_56789"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 5,
+      "helpfulness": 5,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_78901"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 5,
+      "helpfulness": 4,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_90123"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 4,
+      "helpfulness": 4,
+      "completeness": 4,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_12345"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 5,
+      "helpfulness": 4,
+      "completeness": 5,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_23456"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 3,
+      "helpfulness": 4,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_34567"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 4,
+      "helpfulness": 5,
+      "completeness": 4,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_45678"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 4,
+      "helpfulness": 5,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_56789"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 3,
+      "helpfulness": 4,
+      "completeness": 5,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_78901"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 4,
+      "helpfulness": 3,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_90123"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 5,
+      "helpfulness": 4,
+      "completeness": 3,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_12345"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 5,
+      "helpfulness": 5,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_23456"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 3,
+      "helpfulness": 3,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_34567"
+    },
+    {
+      "groundedness": 3,
+      "relevance": 3,
+      "helpfulness": 4,
+      "completeness": 4,
+      "tone": 4,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_45678"
+    },
+    {
+      "groundedness": 5,
+      "relevance": 3,
+      "helpfulness": 5,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_56789"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 5,
+      "helpfulness": 4,
+      "completeness": 5,
+      "tone": 5,
+      "unsupported_claims": true,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_78901"
+    },
+    {
+      "groundedness": 4,
+      "relevance": 3,
+      "helpfulness": 4,
+      "completeness": 3,
+      "tone": 4,
+      "unsupported_claims": false,
+      "rationale": "Mock evaluation for demonstration purposes",
+      "id": "GS_90123"
+    }
+  ]
+}

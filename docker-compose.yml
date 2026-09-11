@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: hiver
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports: ['55432:5432']
+    volumes: ['postgres_data:/var/lib/postgresql/data']
+  backend:
+    build: { context: ., target: backend }
+    env_file: .env
+    environment: { DATABASE_URL: postgresql://postgres:postgres@postgres:5432/hiver }
+    ports: ['3001:3001']
+    depends_on: [postgres]
+  frontend:
+    build: { context: ., target: frontend }
+    ports: ['5173:5173']
+    depends_on: [backend]
+volumes: { postgres_data: {} }

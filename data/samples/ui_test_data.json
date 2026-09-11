@@ -1,0 +1,100 @@
+{
+  "sample_messages": [
+    {
+      "id": 1,
+      "message": "@AmazonHelp that is not my apartment!!!!!!! This is the sending time!!!! Where is my package!!!!!!!!!! https://t.co/EIY6DZUCDC",
+      "expected_intent": "delivery_problem",
+      "expected_escalation": true,
+      "sample_response": "@116094 I'm so sorry! We'd like to make sure this is addressed. Please provide some details here: https://t.co/KctVgMFvbp (1/2)"
+    },
+    {
+      "id": 2,
+      "message": "Erm @AmazonHelp I bought this item for £5.99... why am I only getting £1.67 back?! https://t.co/lb33bFOcW0",
+      "expected_intent": "general_inquiry",
+      "expected_escalation": false,
+      "sample_response": "@116318 I'm sorry you didn't receive the refund amount you expected. Please check here for more info: https://t.co/I5rEOyBt2k ^BT"
+    },
+    {
+      "id": 3,
+      "message": "@115850 I have stopped ordering from your site, Amazon courier guys are very rude. I have given similar complaints to u no of tyms.",
+      "expected_intent": "general_inquiry",
+      "expected_escalation": true,
+      "sample_response": "@117088 Apologies for this unpleasant experience. I'd like to take a closer look. 1/2 ^HD"
+    },
+    {
+      "id": 4,
+      "message": "@115821 why do I pay for 2 day shipping and it's going on 4 days.",
+      "expected_intent": "general_inquiry",
+      "expected_escalation": false,
+      "sample_response": "@117499 I'm sorry for the wait! Two-Day Shipping refers to transit speed in business days once an order's shipped. (1/2)"
+    },
+    {
+      "id": 5,
+      "message": "Worst experience in shopping no product no refund , been 40 days. F&@694 it @115821",
+      "expected_intent": "refund_request",
+      "expected_escalation": true,
+      "sample_response": "@117789 Apologies for the delay in delivery of your order, Benish. We'd like to take a closer look. 1/2 ^HD"
+    },
+    {
+      "id": 6,
+      "message": "@115850 Hi, prime was available for 599/- per year few days back. Can you remind me when it will be back?",
+      "expected_intent": "prime_membership",
+      "expected_escalation": false,
+      "sample_response": "I'd be happy to help with Prime membership pricing. Current promotions vary, but I can check the latest offers for you."
+    },
+    {
+      "id": 7,
+      "message": "@117634 How do i set it so my new dire HD 10 kindle wont download apps and movies i never asked it too?",
+      "expected_intent": "product_issue",
+      "expected_escalation": true,
+      "sample_response": "This sounds like a device settings issue. Let me help you adjust the parental controls and download settings."
+    },
+    {
+      "id": 8,
+      "message": "@115830 Can I get a price adjustment?",
+      "expected_intent": "general_inquiry",
+      "expected_escalation": true,
+      "sample_response": "I can check if you're eligible for a price adjustment. Please provide your order number and the current lower price."
+    },
+    {
+      "id": 9,
+      "message": "@115821 I want to leave feedback about my experience",
+      "expected_intent": "general_inquiry",
+      "expected_escalation": false,
+      "sample_response": "Thank you for wanting to share your feedback. We value customer input and would love to hear about your experience."
+    },
+    {
+      "id": 10,
+      "message": "@115830 The tracking information hasn't updated",
+      "expected_intent": "order_status",
+      "expected_escalation": false,
+      "sample_response": "I can help you check your tracking status. Please provide your order number so I can look into this for you."
+    }
+  ],
+  "available_intents": [
+    "general_inquiry",
+    "delivery_problem", 
+    "refund_request",
+    "return_exchange",
+    "prime_membership",
+    "payment_issue",
+    "account_access",
+    "order_status",
+    "product_issue"
+  ],
+  "metadata": {
+    "brand": "AmazonHelp",
+    "total_pairs": 171,
+    "intent_distribution": {
+      "general_inquiry": 99,
+      "delivery_problem": 26,
+      "refund_request": 13,
+      "return_exchange": 9,
+      "prime_membership": 8,
+      "payment_issue": 8,
+      "account_access": 4,
+      "order_status": 3,
+      "product_issue": 1
+    }
+  }
+}

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiver AI Support Agent - Test Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .message-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn-test {
+            background-color: #28a745;
+        }
+        .btn-test:hover {
+            background-color: #218838;
+        }
+        .response {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .intent-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 2px;
+        }
+        .intent-general_inquiry { background-color: #6c757d; color: white; }
+        .intent-delivery_problem { background-color: #dc3545; color: white; }
+        .intent-refund_request { background-color: #ffc107; color: black; }
+        .intent-prime_membership { background-color: #17a2b8; color: white; }
+        .intent-product_issue { background-color: #fd7e14; color: white; }
+        .escalate-true { color: #dc3545; font-weight: bold; }
+        .escalate-false { color: #28a745; font-weight: bold; }
+        .sample-messages {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .sample-btn {
+            background-color: #e9ecef;
+            color: #333;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 12px;
+        }
+        .sample-btn:hover {
+            background-color: #dde2e6;
+        }
+        .metadata {
+            background-color: #e7f3ff;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Hiver AI Support Agent - Test Interface</h1>
+        
+        <div class="metadata">
+            <strong>System Info:</strong> AmazonHelp Brand | 171 Resolution Pairs | 9 Intents
+        </div>
+
+        <div class="test-section">
+            <h3>📝 Test Your Own Message</h3>
+            <textarea id="customMessage" class="message-input" rows="3" placeholder="Enter a customer support message..."></textarea>
+            <button class="btn btn-test" onclick="analyzeCustomMessage()">Analyze Message</button>
+        </div>
+
+        <div class="test-section">
+            <h3>🧪 Sample Test Messages</h3>
+            <div class="sample-messages" id="sampleMessages"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>📊 Analysis Results</h3>
+            <div id="results" class="response">
+                <em>Results will appear here after analysis...</em>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>🎯 Available Intents</h3>
+            <div id="intents"></div>
+        </div>
+    </div>
+
+    <script>
+        const sampleData = {
+            sample_messages: [
+                {
+                    id: 1,
+                    message: "@AmazonHelp that is not my apartment!!!!!!! This is the sending time!!!! Where is my package!!!!!!!!!!",
+                    expected_intent: "delivery_problem"
+                },
+                {
+                    id: 2,
+                    message: "Erm @AmazonHelp I bought this item for £5.99... why am I only getting £1.67 back?!",
+                    expected_intent: "general_inquiry"
+                },
+                {
+                    id: 3,
+                    message: "@115850 I have stopped ordering from your site, Amazon courier guys are very rude.",
+                    expected_intent: "general_inquiry"
+                },
+                {
+                    id: 4,
+                    message: "@115821 why do I pay for 2 day shipping and it's going on 4 days.",
+                    expected_intent: "general_inquiry"
+                },
+                {
+                    id: 5,
+                    message: "Worst experience in shopping no product no refund , been 40 days.",
+                    expected_intent: "refund_request"
+                },
+                {
+                    id: 6,
+                    message: "@115850 Hi, prime was available for 599/- per year few days back. Can you remind me when it will be back?",
+                    expected_intent: "prime_membership"
+                },
+                {
+                    id: 7,
+                    message: "@117634 How do i set it so my new dire HD 10 kindle wont download apps and movies i never asked it too?",
+                    expected_intent: "product_issue"
+                },
+                {
+                    id: 8,
+                    message: "@115830 Can I get a price adjustment?",
+                    expected_intent: "general_inquiry"
+                }
+            ],
+            available_intents: [
+                "general_inquiry", "delivery_problem", "refund_request", "return_exchange",
+                "prime_membership", "payment_issue", "account_access", "order_status", "product_issue"
+            ]
+        };
+
+        // Mock response generator (since backend might not be running)
+        function generateMockResponse(message) {
+            const messageLower = message.toLowerCase();
+            
+            let intent, confidence, response, escalate, escalationReason;
+            
+            if (messageLower.includes('package') || messageLower.includes('delivery') || messageLower.includes('where is my')) {
+                intent = "delivery_problem";
+                confidence = 0.85;
+                response = "I can help you track your package. Please provide your order number so I can check the status and location of your delivery.";
+                escalate = false;
+                escalationReason = null;
+            } else if (messageLower.includes('refund') || messageLower.includes('money back')) {
+                intent = "refund_request";
+                confidence = 0.91;
+                response = "I understand you're concerned about your refund. Let me help you check the status and resolve any issues with your refund process.";
+                escalate = true;
+                escalationReason = "Refund requests involving significant delays or amounts require human review";
+            } else if (messageLower.includes('prime')) {
+                intent = "prime_membership";
+                confidence = 0.78;
+                response = "I'd be happy to help with Prime membership questions. Current promotions and pricing vary, but I can check the latest offers for you.";
+                escalate = false;
+                escalationReason = null;
+            } else if (messageLower.includes('kindle') || messageLower.includes('device') || messageLower.includes('download')) {
+                intent = "product_issue";
+                confidence = 0.82;
+                response = "This sounds like a device settings issue. Let me help you adjust the parental controls and download settings on your Kindle.";
+                escalate = true;
+                escalationReason = "Technical device issues often require specialized support";
+            } else {
+                intent = "general_inquiry";
+                confidence = 0.72;
+                response = "I'd be happy to help you with your inquiry. Could you please provide more details about what you need assistance with?";
+                escalate = false;
+                escalationReason = null;
+            }
+            
+            return {
+                intent,
+                confidence,
+                response,
+                escalate,
+                escalationReason,
+                evidence: [
+                    {
+                        conversation_id: "SAMPLE_" + Math.floor(Math.random() * 1000),
+                        similar_message: message.substring(0, 50) + "...",
+                        agent_response: "Historical agent response for similar inquiry..."
+                    }
+                ],
+                latency_ms: Math.floor(Math.random() * 200) + 50
+            };
+        }
+
+        function displayResults(result) {
+            const resultsDiv = document.getElementById('results');
+            
+            resultsDiv.innerHTML = `
+                <strong>Intent:</strong> <span class="intent-badge intent-${result.intent}">${result.intent}</span>
+                <strong>Confidence:</strong> ${(result.confidence * 100).toFixed(1)}%
+                <strong>Escalate:</strong> <span class="escalate-${result.escalate}">${result.escalate ? 'YES' : 'NO'}</span>
+                ${result.escalationReason ? `<br><strong>Reason:</strong> ${result.escalationReason}` : ''}
+                <br><br>
+                <strong>Response:</strong><br>
+                ${result.response}
+                <br><br>
+                <strong>Evidence:</strong><br>
+                ${result.evidence.map(e => `- Similar: "${e.similar_message}" (Conv: ${e.conversation_id})`).join('<br>')}
+                <br><br>
+                <strong>Latency:</strong> ${result.latency_ms}ms
+            `;
+        }
+
+        function analyzeMessage(message) {
+            // Try to call real API first
+            fetch('http://localhost:3001/api/v1/support/analyze', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('API not available');
+                }
+            })
+            .then(data => displayResults(data))
+            .catch(error => {
+                console.log('Using mock response:', error);
+                const mockResult = generateMockResponse(message);
+                displayResults(mockResult);
+            });
+        }
+
+        function analyzeCustomMessage() {
+            const message = document.getElementById('customMessage').value;
+            if (message.trim()) {
+                analyzeMessage(message);
+            } else {
+                alert('Please enter a message to analyze');
+            }
+        }
+
+        function loadSampleMessages() {
+            const container = document.getElementById('sampleMessages');
+            sampleData.sample_messages.forEach(msg => {
+                const btn = document.createElement('button');
+                btn.className = 'sample-btn';
+                btn.textContent = msg.message.substring(0, 60) + '...';
+                btn.onclick = () => {
+                    document.getElementById('customMessage').value = msg.message;
+                    analyzeMessage(msg.message);
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function loadIntents() {
+            const container = document.getElementById('intents');
+            sampleData.available_intents.forEach(intent => {
+                const badge = document.createElement('span');
+                badge.className = `intent-badge intent-${intent}`;
+                badge.textContent = intent;
+                container.appendChild(badge);
+            });
+        }
+
+        // Initialize
+        loadSampleMessages();
+        loadIntents();
+    </script>
+</body>
+</html>
