@@ -86,11 +86,11 @@ I've created sample data and testing tools in `data/samples/`:
 
 ### **Quick Options to Test the UI:**
 
-**🚀 Fastest (No Backend):** Open `data/samples/frontend_test.html` in your browser - instant testing with mock responses.
+** Fastest (No Backend):** Open `data/samples/frontend_test.html` in your browser - instant testing with mock responses.
 
-**⚡ Simple Backend:** Run `data/samples/start_simple_backend.bat` (Windows) or `python simple_backend_server.py` (Mac/Linux), then start the frontend with `cd frontend && npm run dev`. Open `http://localhost:5173`.
+** Simple Backend:** Run `data/samples/start_simple_backend.bat` (Windows) or `python simple_backend_server.py` (Mac/Linux), then start the frontend with `cd frontend && npm run dev`. Open `http://localhost:5173`.
 
-**🔧 Full Stack:** Follow the complete instructions in `data/samples/ui_quickstart.md` for testing with PostgreSQL and the full system.
+** Full Stack:** Follow the complete instructions in `data/samples/ui_quickstart.md` for testing with PostgreSQL and the full system.
 
 ### **Available Testing Tools:**
 - **`ui_test_data.json`**: 10 sample customer messages with expected intents and responses
