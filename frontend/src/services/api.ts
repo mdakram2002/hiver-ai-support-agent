@@ -1,7 +1,9 @@
 import type { Analysis } from '../types/support';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
+
 export async function analyze(message: string): Promise<Analysis> {
-  const r = await fetch('/api/v1/support/analyze', {
+  const r = await fetch(`${API_BASE_URL}/api/v1/support/analyze`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ message }),
@@ -11,6 +13,6 @@ export async function analyze(message: string): Promise<Analysis> {
 }
 
 export async function evaluation() {
-  const r = await fetch('/api/v1/evaluation/results');
+  const r = await fetch(`${API_BASE_URL}/api/v1/evaluation/results`);
   return r.json();
 }
