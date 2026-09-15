@@ -67,19 +67,6 @@ See [REPORT.md](REPORT.md) for my detailed analysis and [decision-log.md](docs/d
 
 ---
 
-## Submission Details
-
-**Assignment**: Hiver SDE Intern — Take-Home Assignment  
-**Candidate**: [Your Name]  
-**Contact**: [Your Email]  
-**Date**: September 11, 2026
-
-**What I built**: A complete AI support agent pipeline for AmazonHelp brand from the Customer Support on Twitter dataset, including data cleaning, taxonomy development, intent classification, evidence retrieval, and evaluation against two baselines.
-
-**Key results**: TF-IDF baseline achieves 72.2% accuracy with 0.63 macro F1 on my 54-example golden set, significantly outperforming the 37% majority baseline.
-
-**What I'm proud of**: I turned a messy 3M tweet dataset into a working, evaluable system with proper train/eval splits, a hand-labeled golden set, and meaningful baseline comparisons. I focused on the "proof is worth more than the system" principle by building robust evaluation and failure analysis.
-
 ## Testing the UI
 
 I've created sample data and testing tools in `data/samples/`:
