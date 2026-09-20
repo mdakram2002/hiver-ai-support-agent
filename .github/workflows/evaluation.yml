@@ -43,8 +43,16 @@ jobs:
 
       - name: Check for required files
         run: |
-          if [ ! -f "${{ github.event.inputs.golden_set_file }}" ]; then
-            echo "Golden set file not found: ${{ github.event.inputs.golden_set_file }}"
+          GOLDEN_SET_FILE="${{ github.event.inputs.golden_set_file }}"
+          if [ -z "$GOLDEN_SET_FILE" ]; then
+            GOLDEN_SET_FILE="evaluation/golden_set/golden_set_annotated.csv"
+          fi
+          
+          echo "Checking for golden set file: $GOLDEN_SET_FILE"
+          ls -la evaluation/golden_set/
+          
+          if [ ! -f "$GOLDEN_SET_FILE" ]; then
+            echo "Golden set file not found: $GOLDEN_SET_FILE"
             echo "Please run the data pipeline first to generate the golden set template"
             exit 1
           fi
