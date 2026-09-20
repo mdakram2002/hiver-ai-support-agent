@@ -9,7 +9,15 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 warnings.filterwarnings("ignore")
-load_dotenv(Path(__file__).resolve().parents[2] / ".env")
+# Try to load .env from multiple possible locations
+env_paths = [
+    Path(__file__).resolve().parents[2] / ".env",  # Repository root
+    Path(__file__).resolve().parents[1] / ".env",  # data-pipeline directory
+]
+for env_path in env_paths:
+    if env_path.exists():
+        load_dotenv(env_path)
+        break
 
 
 def main():

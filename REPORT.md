@@ -1,8 +1,8 @@
-# Report — Hiver AI Support Agent
+# Report — Customer Support AI Agent
 
 ## Problem framing
 
-For this assignment, I defined "good" as a support agent that can: (1) accurately classify customer messages into a manageable set of intents, (2) retrieve historically relevant resolutions to ground responses, and (3) make safe escalation decisions when uncertain. I explicitly chose not to build policy automation, account actions, or open-ended chatbot behavior - I focused on the core classification and evidence-grounded response problem.
+For this project, I defined "good" as a support agent that can: (1) accurately classify customer messages into a manageable set of intents, (2) retrieve historically relevant resolutions to ground responses, and (3) make safe escalation decisions when uncertain. I explicitly chose not to build policy automation, account actions, or open-ended chatbot behavior - I focused on the core classification and evidence-grounded response problem.
 
 ## Dataset and brand
 

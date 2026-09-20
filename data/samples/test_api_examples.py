@@ -47,7 +47,7 @@ def test_support_analysis(message):
 
 def main():
     """Run API tests with sample data."""
-    print("=== Hiver AI Support Agent - API Test ===\n")
+    print("=== Customer Support AI Agent - API Test ===\n")
     
     # Test health
     if not test_health():

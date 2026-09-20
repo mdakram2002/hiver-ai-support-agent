@@ -1,0 +1,162 @@
+name: Data Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: 'Brand to process (e.g., AmazonHelp)'
+        required: true
+        default: 'AmazonHelp'
+      sample_size:
+        description: 'Sample size for data cleaning (default: 50000)'
+        required: false
+        default: '50000'
+      force_download:
+        description: 'Force re-download dataset'
+        required: false
+        default: 'false'
+      replace_brand:
+        description: 'Replace existing brand data in database'
+        required: false
+        default: 'false'
+
+jobs:
+  data-pipeline:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r data-pipeline/requirements.txt
+
+      - name: Create data directories
+        run: |
+          mkdir -p data/raw
+          mkdir -p data/processed
+          mkdir -p evaluation/golden_set
+          mkdir -p reports
+
+      - name: Download TWCS dataset
+        run: |
+          if [ "${{ github.event.inputs.force_download }}" = "true" ] || [ ! -f data/raw/twcs.csv ]; then
+            python scripts/download_dataset.py --target data/raw/twcs.csv --force
+          else
+            echo "Dataset already exists, skipping download"
+          fi
+
+      - name: Clean data
+        run: |
+          cd data-pipeline/scripts
+          python 01_clean_data.py --input ../../data/raw/twcs.csv --sample-size ${{ github.event.inputs.sample_size }}
+
+      - name: Reconstruct threads
+        run: |
+          cd data-pipeline/scripts
+          python 02_reconstruct_threads.py
+
+      - name: Select brand
+        run: |
+          cd data-pipeline/scripts
+          python 03_select_brand.py --brand ${{ github.event.inputs.brand }}
+
+      - name: Build intents for review
+        run: |
+          cd data-pipeline/scripts
+          python 04_build_intents.py --brand ${{ github.event.inputs.brand }}
+
+      - name: Split conversations
+        run: |
+          cd data-pipeline/scripts
+          python 08_split_conversations.py
+
+      - name: Prepare resolution pairs
+        run: |
+          cd data-pipeline/scripts
+          python 05_prepare_resolution_pairs.py --brand ${{ github.event.inputs.brand }}
+
+      - name: Label resolution pairs
+        run: |
+          cd data-pipeline/scripts
+          python 10_label_resolution_pairs.py
+
+      - name: Build embeddings
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          cd data-pipeline/scripts
+          python 06_build_embeddings.py --brand ${{ github.event.inputs.brand }}
+
+      - name: Initialize database schema
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          # Initialize the database schema
+          python -c "
+          import psycopg
+          import os
+          conn = psycopg.connect(os.environ['DATABASE_URL'])
+          cursor = conn.cursor()
+          cursor.execute('CREATE EXTENSION IF NOT EXISTS vector')
+          cursor.execute('''
+              CREATE TABLE IF NOT EXISTS resolution_examples (
+                  id bigserial PRIMARY KEY, 
+                  conversation_id text NOT NULL, 
+                  brand text NOT NULL, 
+                  customer_message text NOT NULL, 
+                  agent_response text NOT NULL, 
+                  intent text NOT NULL, 
+                  metadata jsonb NOT NULL DEFAULT '{}', 
+                  embedding vector(1536), 
+                  created_at timestamptz NOT NULL DEFAULT now()
+              )
+          ''')
+          cursor.execute('CREATE INDEX IF NOT EXISTS resolution_examples_brand_intent_idx ON resolution_examples (brand, intent)')
+          cursor.execute('CREATE INDEX IF NOT EXISTS resolution_examples_embedding_idx ON resolution_examples USING hnsw (embedding vector_cosine_ops)')
+          conn.commit()
+          conn.close()
+          print('Database schema initialized successfully')
+          "
+
+      - name: Import to Neon PostgreSQL
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          cd data-pipeline/scripts
+          if [ "${{ github.event.inputs.replace_brand }}" = "true" ]; then
+            python 07_import_resolution_pairs.py --replace-brand
+          else
+            python 07_import_resolution_pairs.py
+          fi
+
+      - name: Upload pipeline metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-metadata
+          path: |
+            data/processed/split_metadata.json
+            data/processed/labeling_metadata.json
+          retention-days: 30
+
+      - name: Upload sample golden set
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-set-template
+          path: evaluation/golden_set/
+          retention-days: 30
+
+      - name: Generate pipeline summary
+        run: |
+          echo "## Data Pipeline Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- **Brand**: ${{ github.event.inputs.brand }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Sample Size**: ${{ github.event.inputs.sample_size }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Dataset**: Downloaded from KaggleHub" >> $GITHUB_STEP_SUMMARY
+          echo "- **Pipeline Status**: Completed successfully" >> $GITHUB_STEP_SUMMARY
+          echo "- **Database**: Imported to Neon PostgreSQL with pgvector" >> $GITHUB_STEP_SUMMARY

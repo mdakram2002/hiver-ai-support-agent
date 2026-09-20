@@ -1,8 +1,8 @@
-# Hiver AI Support Agent
+# Customer Support - AI Agent
 
 An evidence-first take-home implementation for building an AI support agent from the Customer Support on Twitter dataset. It classifies a message into a human-reviewed, brand-specific taxonomy; retrieves comparable historical resolutions; drafts only evidence-grounded text; and escalates uncertain or unsupported cases.
 
-## Current experiment status
+## Current project status
 
 **Completed.** I built and evaluated this system using the AmazonHelp brand from the Kaggle Customer Support on Twitter dataset. The system includes a 10-intent taxonomy I developed from the data, 171 historically reviewed resolution pairs, and a 54-example golden set I hand-labeled. Evaluation shows the TF-IDF baseline achieves 72.2% accuracy with 0.63 macro F1. The full pipeline is reproducible in under 15 minutes.
 
@@ -13,6 +13,8 @@ React/Vite is a small operator console. Fastify orchestrates a structured-output
 ## Quick demo (under 15 minutes)
 
 I designed this pipeline to be fully reproducible. Here's how to run my complete evaluation:
+
+### Local Execution
 
 1. **Dataset setup**: Download Kaggle's `thoughtvector/customer-support-on-twitter` CSV and place it in `data/raw/` (the dataset is 500MB, I worked with a 100K sample for faster iteration)
 2. **Environment setup**: Copy `.env.example` to `.env` (OPENAI_API_KEY is optional - I used dummy embeddings for faster iteration)
@@ -28,9 +30,94 @@ I designed this pipeline to be fully reproducible. Here's how to run my complete
 4. **Run evaluation**: `cd evaluation && python run_evaluation.py`
 5. **Run LLM judge**: `cd llm_judge && python mock_judge_evaluation.py`
 
+### GitHub Actions Execution
+
+**Data Pipeline:**
+- Go to GitHub → Actions → Data Pipeline → Run workflow
+- Configure inputs:
+  - `brand`: AmazonHelp (or your target brand)
+  - `sample_size`: 50000 (default)
+  - `force_download`: false (unless you want to re-download dataset)
+  - `replace_brand`: false (unless you want to replace existing database data)
+
+**Evaluation:**
+- Go to GitHub → Actions → Evaluation → Run workflow
+- Configure inputs:
+  - `golden_set_file`: evaluation/golden_set/golden_set_annotated.csv
+  - `run_llm_judge`: false (set to true to run LLM judge evaluation)
+
+### Required GitHub Secrets
+
+Configure these in GitHub repository settings → Secrets and variables → Actions:
+
+- `DATABASE_URL`: Your Neon PostgreSQL connection string
+- `OPENAI_API_KEY`: Your OpenAI API key (for embeddings and LLM judge)
+
 This will reproduce my headline results: TF-IDF baseline achieving 72.2% accuracy with 0.63 macro F1 on my 54-example golden set.
 
 The full data pipeline uses a bounded input read (50,000 rows by default) and does not load all 3M tweets during API execution.
+
+## Running the Data Pipeline
+
+### Local Execution
+
+```bash
+# Install dependencies
+pip install -r data-pipeline/requirements.txt
+
+# Download dataset (optional - GitHub Actions will handle this)
+python scripts/download_dataset.py --target data/raw/twcs.csv
+
+# Run pipeline scripts in order
+cd data-pipeline/scripts
+python 01_clean_data.py --input ../../data/raw/twcs.csv
+python 02_reconstruct_threads.py
+python 03_select_brand.py --brand AmazonHelp
+python 04_build_intents.py --brand AmazonHelp
+python 08_split_conversations.py
+python 05_prepare_resolution_pairs.py --brand AmazonHelp
+python 10_label_resolution_pairs.py
+python 06_build_embeddings.py --brand AmazonHelp
+python 07_import_resolution_pairs.py
+```
+
+### GitHub Actions Execution
+
+**Data Pipeline:**
+- GitHub → Actions → Data Pipeline → Run workflow
+- Triggers: Manual (workflow_dispatch)
+- Platform: Ubuntu latest
+- Python: 3.11
+- Dataset: Automatically downloaded from KaggleHub
+- Database: Automatically imports to Neon PostgreSQL + pgvector
+
+**Evaluation:**
+- GitHub → Actions → Evaluation → Run workflow
+- Triggers: Manual + automatic on push to main
+- Runs Python tests
+- Executes evaluation pipeline
+- Uploads results as artifacts
+
+### Files Not Committed to Git
+
+The following files are intentionally not tracked to keep the repository lightweight:
+
+- `data/raw/twcs.csv` (169MB+ raw dataset)
+- `data/processed/clean.csv` (generated cleaned data)
+- `data/processed/threads.csv` (generated thread data)
+- `data/processed/train_threads.csv` (generated training split)
+- `data/processed/eval_threads.csv` (generated evaluation split)
+- `data/processed/resolution_pairs.csv` (generated resolution pairs)
+- `data/processed/resolution_pairs_labeled.csv` (generated labeled pairs)
+- `data/processed/resolution_pairs_embedded.csv` (generated embeddings)
+- `data/processed/*.json` (generated metadata files)
+- `reports/evaluation_results.json` (generated evaluation results)
+- `*.sqlite`, `*.db` (database files)
+
+Important files that ARE tracked:
+- `data/processed/intent_taxonomy.json` (human-defined taxonomy)
+- `evaluation/golden_set/golden_set_annotated.csv` (human-labeled golden set)
+- Source code and configuration files
 
 ## API
 
@@ -67,14 +154,10 @@ See [REPORT.md](REPORT.md) for my detailed analysis and [decision-log.md](docs/d
 
 ---
 
-## Submission Details
+## Project Details
 
-**Assignment**: Hiver SDE Intern — Take-Home Assignment  
-**Candidate**: [Your Name]  
-**Contact**: [Your Email]  
-**Date**: September 11, 2026
-
-**What I built**: A complete AI support agent pipeline for AmazonHelp brand from the Customer Support on Twitter dataset, including data cleaning, taxonomy development, intent classification, evidence retrieval, and evaluation against two baselines.
+**Project**: Customer Support AI Agent  
+**Description**: A complete AI support agent pipeline for customer support analysis from the Customer Support on Twitter dataset, including data cleaning, taxonomy development, intent classification, evidence retrieval, and evaluation against baselines.
 
 **Key results**: TF-IDF baseline achieves 72.2% accuracy with 0.63 macro F1 on my 54-example golden set, significantly outperforming the 37% majority baseline.
 

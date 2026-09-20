@@ -1,13 +1,16 @@
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
 import path from 'node:path';
 
-dotenv.config({ path: path.resolve('C:\\Users\\hp\\GitHub\\hiver-ai-support-agent\\.env') });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 const schema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   PORT: z.coerce.number().int().positive().default(3001),
-  DATABASE_URL: z.string().default('postgresql://postgres:postgres@127.0.0.1:55432/hiver'),
+  DATABASE_URL: z.string().default('postgresql://postgres:postgres@127.0.0.1:55432/customer_support'),
   OPENAI_API_KEY: z.string().optional(),
   OPENAI_MODEL: z.string().default('gpt-4o-mini'),
   SELECTED_BRAND: z.string().optional(),

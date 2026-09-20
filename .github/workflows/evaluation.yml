@@ -1,0 +1,96 @@
+name: Evaluation
+
+on:
+  workflow_dispatch:
+    inputs:
+      golden_set_file:
+        description: 'Golden set file path (default: evaluation/golden_set/golden_set_annotated.csv)'
+        required: false
+        default: 'evaluation/golden_set/golden_set_annotated.csv'
+      run_llm_judge:
+        description: 'Run LLM judge evaluation'
+        required: false
+        default: 'false'
+  push:
+    branches:
+      - main
+    paths:
+      - 'evaluation/**'
+      - 'data/processed/**'
+      - '.github/workflows/evaluation.yml'
+
+jobs:
+  evaluation:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r data-pipeline/requirements.txt
+
+      - name: Run Python tests
+        run: |
+          pip install pytest
+          pytest tests/ -v
+
+      - name: Check for required files
+        run: |
+          if [ ! -f "${{ github.event.inputs.golden_set_file }}" ]; then
+            echo "Golden set file not found: ${{ github.event.inputs.golden_set_file }}"
+            echo "Please run the data pipeline first to generate the golden set template"
+            exit 1
+          fi
+          
+          if [ ! -f "data/processed/train_threads.csv" ]; then
+            echo "Training data not found: data/processed/train_threads.csv"
+            echo "Please run the data pipeline first to generate training data"
+            exit 1
+          fi
+
+      - name: Run evaluation
+        run: |
+          cd evaluation
+          python run_evaluation.py
+
+      - name: Upload evaluation results
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-results
+          path: reports/evaluation_results.json
+          retention-days: 30
+
+      - name: Run LLM judge evaluation
+        if: github.event.inputs.run_llm_judge == 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          cd evaluation/llm_judge
+          python mock_judge_evaluation.py
+
+      - name: Upload LLM judge results
+        if: github.event.inputs.run_llm_judge == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: llm-judge-results
+          path: reports/llm_judge_results.json
+          retention-days: 30
+
+      - name: Generate evaluation summary
+        run: |
+          if [ -f reports/evaluation_results.json ]; then
+            echo "## Evaluation Results" >> $GITHUB_STEP_SUMMARY
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            cat reports/evaluation_results.json >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## Evaluation Results" >> $GITHUB_STEP_SUMMARY
+            echo "No evaluation results generated" >> $GITHUB_STEP_SUMMARY
+          fi
